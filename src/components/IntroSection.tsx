@@ -22,7 +22,7 @@ import img12 from "../assets/cta-img-02.webp";
 import img13 from "../assets/hand.png";
 
 const IMAGES = [
-  img1,img2,img3,img4,img5,img6,img7,img8,img9,img10,img11,img12,img13];
+    img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13];
 
 
 export default function ImageTrailIntro() {
@@ -78,7 +78,7 @@ export default function ImageTrailIntro() {
             );
 
             // Spawn image when distance threshold is met
-            if (distance > 160) {
+            if (distance > 280) {
                 const currentImage = imagesRef.current[currentImageIndex.current];
 
                 if (currentImage) {
@@ -141,7 +141,7 @@ export default function ImageTrailIntro() {
     }, [imagesLoaded]);
 
     return (
-        <section className="relative min-h-screen bg-black flex items-center justify-center overflow-hidden">
+        <section className="relative min-h-screen w-full overflow-hidden m-0 p-0">
             <div ref={contentRef} className="relative w-full h-screen flex items-center justify-center">
                 {/* Trail Images */}
                 {IMAGES.map((src, index) => (
@@ -156,21 +156,27 @@ export default function ImageTrailIntro() {
                         style={{
                             top: 0,
                             left: 0,
-                            width: "200px",
+                            width: "clamp(90px, 14vw, 180px)",
                             height: "auto",
-                            maxWidth: "200px",
                             willChange: "transform, opacity",
                         }}
                     />
                 ))}
 
                 {/* Main Title */}
-                <h1
-                    className="relative text-[clamp(60px,12vw,200px)] font-black text-white uppercase tracking-tight select-none"
+                <div
+                    className="relative flex flex-col items-center select-none"
                     style={{ zIndex: 10000 }}
                 >
-                    Shivam Joshi
-                </h1>
+                    <h1 className="text-[clamp(60px,12vw,200px)] font-black text-white uppercase tracking-tight">
+                        Shivam Joshi
+                    </h1>
+
+                    <span className="text-sm md:text-base tracking-widest uppercase text-white/60">
+                        ( move your mouse )
+                    </span>
+                </div>
+
             </div>
         </section>
     );

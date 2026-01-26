@@ -8,7 +8,7 @@ interface RabbitHoleTextProps {
     text?: string;
 }
 
-export default function RabbitHoleText({ text = "RABBIT HOLE" }: RabbitHoleTextProps) {
+export default function RabbitHoleText({ text = "Shivam Joshi" }: RabbitHoleTextProps) {
     const sectionRef = useRef<HTMLDivElement>(null);
     const topHalfRef = useRef<HTMLDivElement>(null);
     const bottomHalfRef = useRef<HTMLDivElement>(null);

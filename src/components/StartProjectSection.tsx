@@ -8,7 +8,7 @@ interface StartProjectSectionProps {
     text?: string;
 }
 
-export default function StartProjectSection({ text = "LET'S TALK " }: StartProjectSectionProps) {
+export default function StartProjectSection({ text = "LET'S TALK Ideas" }: StartProjectSectionProps) {
     const sectionRef = useRef<HTMLDivElement>(null);
     const textRef = useRef<HTMLHeadingElement>(null);
 

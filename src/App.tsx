@@ -7,17 +7,18 @@ import Techstack from "./components/Techstack";
 export default function App() {
   return (
     <div className="relative overflow-x-hidden">
-      <RabbitHoleText text="Portfolio" />
       <IntroSection />
       <HeroTextReveal
         items={[
-          { main: "CREATIVE", hover: "DEVELOPER" },
-          { main: "DESIGNER", hover: "& INNOVATOR" },
-          { main: "PORTFOLIO", hover: "2026" },
+    { main: "CREATIVE", hover: "DEVELOPER" },
+    { main: "FRONTEND", hover: "ENGINEER" },
+    { main: "MOTION", hover: "EXPERIENCES" },
+    { main: "PORTFOLIO", hover: "2026" },
         ]}
       />
-      <StartProjectSection />
+      <RabbitHoleText text="Projects" />
       <Techstack/>
+      <StartProjectSection />
     </div>
   );
 }
