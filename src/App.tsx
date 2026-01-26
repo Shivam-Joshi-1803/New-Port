@@ -2,6 +2,7 @@ import IntroSection from "./components/IntroSection";
 import HeroTextReveal from "./components/HeroTextReveal";
 import RabbitHoleText from "./components/RabbitHoleText";
 import StartProjectSection from "./components/StartProjectSection";
+import Techstack from "./components/Techstack";
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
         ]}
       />
       <StartProjectSection />
+      <Techstack/>
     </div>
   );
 }

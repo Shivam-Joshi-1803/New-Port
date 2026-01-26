@@ -24,21 +24,16 @@ export default function HeroTextReveal({ items = DEFAULT_ITEMS }: HeroTextReveal
             const elements = gsap.utils.toArray<HTMLElement>(".hero-reveal-text");
 
             elements.forEach((el, index) => {
-                // Set initial state
-                gsap.set(el, {
-                    backgroundSize: "0% 100%",
-                });
-
-                // Animate on scroll
+                // Animate background-size to reveal gradient on scroll
                 gsap.to(el, {
-                    backgroundSize: "100% 100%",
+                    backgroundSize: "100%",
                     ease: "none",
                     scrollTrigger: {
                         id: `hero-reveal-${index}`,
                         trigger: el,
-                        start: "top 80%",
-                        end: "top 30%",
-                        scrub: 1,
+                        start: "center 80%",
+                        end: "center 20%",
+                        scrub: true,
                         // markers: true, // Uncomment to debug
                     },
                 });
@@ -51,12 +46,12 @@ export default function HeroTextReveal({ items = DEFAULT_ITEMS }: HeroTextReveal
     }, []);
 
     return (
-        <section ref={sectionRef} className="min-h-screen bg-[#0d0d0d] px-8 flex items-center">
+        <section ref={sectionRef} className="h-screen bg-[#0d0d0d] px-8 flex items-center justify-center mt-0">
             <div className="w-full space-y-0">
                 {items.map((item, i) => (
                     <h1
                         key={i}
-                        className="hero-reveal-text text-[10vw] font-black leading-none border-b border-[#2F2B28] relative"
+                        className="hero-reveal-text text-[10vw] font-black leading-none border-b border-[#2F2B28] relative m-0"
                     >
                         {item.main}
                         <span className="hero-clip-span">

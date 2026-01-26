@@ -2,16 +2,28 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 
 // Import local images from assets
-import img1 from "../assets/IMG_20230423_103943_267.jpg";
-import img2 from "../assets/IMG_20230523_234549_245.jpg";
-import img3 from "../assets/IMG_20230826_150820.jpg";
-import img4 from "../assets/IMG_20231002_223755.jpg";
-import img5 from "../assets/IMG_20240209_085639.jpg";
-import img6 from "../assets/WhatsApp Image 2024-07-04 at 20.00.54_7c722a99.jpg";
-import img7 from "../assets/WhatsApp Image 2025-03-30 at 12.43.41_f3ba6dae.jpg";
-import img8 from "../assets/WhatsApp Image 2025-03-30 at 12.43.44_5c0a6daa.jpg";
+import img1 from "../assets/01_comp-img.webp";
+import img2 from "../assets/02_hero-img.webp";
+import img3 from "../assets/04_hero-img.webp";
+import img4 from "../assets/22_hero-img.webp";
 
-const IMAGES = [img1, img2, img3, img4, img5, img6, img7, img8];
+import img5 from "../assets/800x800_pinned-image-02.webp";
+import img6 from "../assets/800x800_pinned-image-03.webp";
+
+import img7 from "../assets/800x800_ser-01.webp";
+import img8 from "../assets/800x800_ser-02.webp";
+
+import img9 from "../assets/800x800_service-image-04.webp";
+import img10 from "../assets/800x800_service-image-05.webp";
+
+import img11 from "../assets/1200x1200_service-image-03.webp";
+import img12 from "../assets/cta-img-02.webp";
+
+import img13 from "../assets/hand.png";
+
+const IMAGES = [
+  img1,img2,img3,img4,img5,img6,img7,img8,img9,img10,img11,img12,img13];
+
 
 export default function ImageTrailIntro() {
     const contentRef = useRef<HTMLDivElement>(null);
@@ -66,7 +78,7 @@ export default function ImageTrailIntro() {
             );
 
             // Spawn image when distance threshold is met
-            if (distance > 100) {
+            if (distance > 160) {
                 const currentImage = imagesRef.current[currentImageIndex.current];
 
                 if (currentImage) {
@@ -157,7 +169,7 @@ export default function ImageTrailIntro() {
                     className="relative text-[clamp(60px,12vw,200px)] font-black text-white uppercase tracking-tight select-none"
                     style={{ zIndex: 10000 }}
                 >
-                    ARTWORLD
+                    Shivam Joshi
                 </h1>
             </div>
         </section>

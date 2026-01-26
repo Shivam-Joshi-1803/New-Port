@@ -29,18 +29,19 @@ body {
    Juxtopposed-style GSAP text effect
    ================================ */
 
-/* Base scroll-reveal text */
+/* Base scroll-reveal text with gradient background-clip */
 .hero-reveal-text {
-  color: rgb(182 182 182 / 0.25);
+  position: relative;
+  width: 100%;
+  color: rgb(182, 182, 182, 0.2);
 
-  background: linear-gradient(to right,
-      rgb(182 182 182),
-      rgb(182 182 182)) no-repeat;
-
-  background-size: 0% 100%;
-
+  /* Gradient background that will be clipped to text */
+  background: linear-gradient(to right, #b6b6b6, #b6b6b6) no-repeat;
   -webkit-background-clip: text;
   background-clip: text;
+  background-size: 0%;
+
+  /* GSAP will animate background-size from 0% to 100% */
 }
 
 
@@ -56,7 +57,7 @@ body {
   align-items: center;
   padding-left: 2rem;
 
-  background-color: #42c9ce;
+  background-color: #3eefff;
   color: #0d0d0d;
 
   /* collapsed state */
