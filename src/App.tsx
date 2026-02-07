@@ -52,6 +52,7 @@ export default function App() {
           colors={['#B19EEF', '#5227FF']}
           logoUrl="/path-to-your-logo.svg"
           accentColor="#5227FF"
+          isFixed={false}
           onMenuOpen={() => console.log('Menu opened')}
           onMenuClose={() => console.log('Menu closed')}
         />
@@ -75,7 +76,7 @@ export default function App() {
           direction="up"
           duration={1}
           className="count-up-text"
-          startCounting={false}
+          startWhen={true}
         />
       </div>
 
