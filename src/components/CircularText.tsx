@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import { motion, useAnimation, useMotionValue, MotionValue, type Transition } from 'motion/react';
+import styles from '../styles/CircularText.module.css';
+
 interface CircularTextProps {
   text: string;
   spinDuration?: number;
@@ -91,7 +93,7 @@ const CircularText: React.FC<CircularTextProps> = ({
 
   return (
     <motion.div
-      className={`m-0 mx-auto rounded-full w-[200px] h-[200px] relative font-black text-white text-center cursor-pointer origin-center ${className}`}
+      className={`${styles.circularTextContainer} ${className}`}
       style={{ rotate: rotation }}
       initial={{ rotate: 0 }}
       animate={controls}
@@ -110,10 +112,8 @@ const CircularText: React.FC<CircularTextProps> = ({
         return (
           <span
             key={i}
-            className="absolute inline-block text-2xl transition-all duration-500 ease-[cubic-bezier(0,0,0,1)]"
+            className={styles.circularLetter}
             style={{
-              left: '50%',
-              top: '50%',
               transform: `translate(-50%, -50%) translate(${x}px, ${y}px) rotate(${angle}deg)`,
               WebkitTransform: `translate(-50%, -50%) translate(${x}px, ${y}px) rotate(${angle}deg)`
             }}

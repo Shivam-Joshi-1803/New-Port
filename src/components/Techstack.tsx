@@ -1,6 +1,7 @@
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import SplitText from "gsap/SplitText";
+import styles from "../styles/Techstack.module.css";
 
 gsap.registerPlugin(SplitText);
 
@@ -36,9 +37,9 @@ export default function Techstack({
         if (!sectionRef.current) return;
 
         const ctx = gsap.context(() => {
-            const profileImages = gsap.utils.toArray<HTMLDivElement>(".tech-img");
-            const nameElements = gsap.utils.toArray<HTMLDivElement>(".tech-name");
-            const nameHeadings = gsap.utils.toArray<HTMLHeadingElement>(".tech-name h1");
+            const profileImages = gsap.utils.toArray<HTMLDivElement>(`.${styles.techImg}`);
+            const nameElements = gsap.utils.toArray<HTMLDivElement>(`.${styles.techName}`);
+            const nameHeadings = gsap.utils.toArray<HTMLHeadingElement>(`.${styles.techName} h1`);
 
             // Wait for fonts to load before splitting text
             document.fonts.ready.then(() => {
@@ -108,7 +109,7 @@ export default function Techstack({
                     });
 
                     // Container hover for default title
-                    const profileImagesContainer = document.querySelector(".profile-images");
+                    const profileImagesContainer = document.querySelector(`.${styles.profileImages}`);
                     if (profileImagesContainer) {
                         profileImagesContainer.addEventListener("mouseenter", () => {
                             // Show default title by animating letters to visible position
@@ -148,140 +149,29 @@ export default function Techstack({
     return (
         <section
             ref={sectionRef}
-            className="techstack-section"
+            className={styles.techstackSection}
         >
-            <div className="profile-images">
+            <div className={styles.profileImages}>
                 {techItems.map((tech, index) => (
                     <div
                         key={index}
-                        className="tech-img"
+                        className={styles.techImg}
                     >
                         <img src={tech.image} alt={tech.name} />
                     </div>
                 ))}
             </div>
 
-            <div className="profile-names">
-                <div className="tech-name default">
+            <div className={styles.profileNames}>
+                <div className={`${styles.techName} ${styles.default}`}>
                     <h1>{title}</h1>
                 </div>
                 {techItems.map((tech, index) => (
-                    <div key={index} className="tech-name">
+                    <div key={index} className={styles.techName}>
                         <h1>{tech.name}</h1>
                     </div>
                 ))}
             </div>
-
-            <style>{`
-                @import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-
-                .techstack-section {
-                    position: relative;
-                    width: 100vw;
-                    height: 100svh;
-                    background-color: #0f0f0f;
-                    color: #e3e3db;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
-                    gap: 2.5em;
-                    overflow: hidden;
-                }
-
-                .profile-images {
-                    width: max-content;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                }
-
-                .tech-img {
-                    position: relative;
-                    width: 70px;
-                    height: 70px;
-                    padding: 5px;
-                    cursor: pointer;
-                    will-change: width, height;
-                }
-
-                .tech-img img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    border-radius: 0.5rem;
-                }
-
-                .profile-names {
-                    position: relative;
-                    width: 100%;
-                    height: 15rem;
-                    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-                    overflow: hidden;
-                }
-
-                .tech-name {
-                    position: absolute;
-                    top: 50%;
-                    left: 0;
-                    width: 100%;
-                    height: auto;
-                }
-
-                .tech-name h1 {
-                    position: relative;
-                    width: 100%;
-                    text-align: center;
-                    text-transform: uppercase;
-                    font-family: "Barlow Condensed", sans-serif;
-                    font-size: 15rem;
-                    font-weight: 900;
-                    letter-spacing: -0.2rem;
-                    line-height: 1;
-                    color: #f93535;
-                    user-select: none;
-                    transform: translateY(-120%);
-                }
-
-                .tech-name.default h1 {
-                    color: #e3e3db;
-                    transform: translateY(-20%);
-                }
-
-                .tech-name h1 .letter {
-                    display: inline-block;
-                    position: relative;
-                    transform: translateY(100%);
-                    will-change: transform;
-                }
-
-                @media screen and (max-width: 900px) {
-                    .techstack-section {
-                        flex-direction: column-reverse;
-                    }
-
-                    .profile-images {
-                        flex-wrap: wrap;
-                        max-width: 90%;
-                        justify-content: center;
-                    }
-
-                    .tech-img {
-                        width: 60px;
-                        height: 60px;
-                        padding: 2.5px;
-                    }
-
-                    .profile-names {
-                        height: 4rem;
-                    }
-
-                    .tech-name h1 {
-                        font-size: 4rem;
-                        letter-spacing: 0;
-                    }
-                }
-            `}</style>
         </section>
     );
 }

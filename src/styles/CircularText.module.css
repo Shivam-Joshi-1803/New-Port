@@ -1,0 +1,23 @@
+/* CircularText Component Styles */
+
+.circularTextContainer {
+    margin: 0 auto;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    position: relative;
+    font-weight: 900;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    transform-origin: center;
+}
+
+.circularLetter {
+    position: absolute;
+    display: inline-block;
+    font-size: 1.5rem;
+    transition: all 500ms cubic-bezier(0, 0, 0, 1);
+    left: 50%;
+    top: 50%;
+}
